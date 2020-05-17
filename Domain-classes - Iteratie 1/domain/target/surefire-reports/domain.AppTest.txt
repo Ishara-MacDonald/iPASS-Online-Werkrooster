@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: domain.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in domain.AppTest
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.06 s <<< FAILURE! - in domain.AppTest
+afmeldingInThePast(domain.AppTest)  Time elapsed: 0.031 s  <<< FAILURE!
+java.lang.AssertionError: Array is niet leeg: Afmelding is toegevoegd.
+	at domain.AppTest.afmeldingInThePast(AppTest.java:27)
+

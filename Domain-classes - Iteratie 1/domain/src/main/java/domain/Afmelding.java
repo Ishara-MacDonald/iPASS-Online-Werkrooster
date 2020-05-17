@@ -16,8 +16,7 @@ public class Afmelding {
     private static ArrayList<Afmelding> afmeldingen = new ArrayList<>();
 
     public Afmelding(RoosterRegel regel, Werktijd werktijd, Gebruiker gebruiker, String reden){
-        Date today = new Date();
-        if(werktijd.getBeginTijd().compareTo(today) < 0){
+        if(regel.getDag().compareTo(LocalDate.now()) > 0){
             this.regel = regel;
             this.werktijd = werktijd;
             this.gebruiker = gebruiker;

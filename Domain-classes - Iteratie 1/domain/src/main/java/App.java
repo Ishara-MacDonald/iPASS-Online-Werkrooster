@@ -9,10 +9,10 @@ public class App {
 
         Gebruiker gebrGuido = new Gebruiker("gebrGui", "vijf", "Guido", "Bakkers");
 
-        Werktijd werktijd = new Werktijd(gebrGuido, "12:00:00", "12:00:00");
+        Werktijd werktijd = new Werktijd(gebrGuido, "12:00:00", "12:00:01");
         System.out.println(werktijd);
 
-        RoosterRegel regel = new RoosterRegel(LocalDate.now(), werktijd);
+        RoosterRegel regel = new RoosterRegel(LocalDate.now().minusDays(2), werktijd);
 
         Afmelding newAfmelding = new Afmelding(regel, werktijd, gebrGuido, "ziekte");
 
