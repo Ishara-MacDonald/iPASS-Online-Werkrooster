@@ -1,28 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>Login</title>
-</head>
-<body>
-	<header>
-		<nav>
-			
-		</nav>
-	</header>
-	<section id="inlog">
-        <fieldset>
-            <legend>Log in</legend>
 
-            <label for="username">Email</label>
-            <input name="username" type="email">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../resources/css/main.css">
+    <link rel="stylesheet" href="../resources/css/inlog.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            
+        </nav>
+    </header>
+
+    <section id="logindata">
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Signin')">Log In</button>
+            <button class="tablinks" onclick="openCity(event, 'Signup')">Sign Up</button>
+        </div>
+
+        <div id="Signin" class="tabcontent">
+            <h1>Log In To Your Account</h1>
+            <input name="username" type="email" placeholder="Enter your email">
             <br><br>
-            <label for="password">Password</label>
-            <input name="password" type="password">
-            <hr>
-            <input type="button" value="Log in">
+            <input name="password" type="password" placeholder="Enter your password">
+            <br>
+        </div>
+
+        <div id="Signup" class="tabcontent">
+            <h1>Sign Up For An Account</h1>
+            <input name="username" type="email" placeholder="Enter your email">
+            <br>
+        </div>
+
+        <a href="werkrooster.html"><input type="button" id="loginButton" value="Log in"></a>
+    </section>
+
+    <!-- <section  id="logindata ">
+        <div class="tab">
+            <button class="tablinks" onclick="openLogin(event, 'signin')">Sign in</button>
+            <button class="tablinks" onclick="openLogin(event, 'signup')">Sign Up</button>
+        </div>
+        <fieldset>
+            <form id="London" class="tabcontent" >
+                <h1>Log In To Your Account</h1>                
+                    <input name="username" type="email" placeholder="Enter your email">
+                    <br><br>
+                    <input name="password" type="password" placeholder="Enter your password">
+                    <br>
+                <input type="button" value="Log in">
+            </form>
+            <form id="Paris" class="tabcontent" >
+                <h1>Sign Up For An Account</h1>
+                    <input name="username" type="email" placeholder="Enter your email">
+                <input type="button" value="Log in">
+            </section>
+            </form>
         </fieldset>
 
-    </section>
+    </section> -->
+
+    <script src="../resources/js/scriptlogin.js"></script>
 </body>
+
 </html>

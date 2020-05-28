@@ -1,21 +1,16 @@
-:root{
-    --light-gray:#DADCE0;
-    --light-blue:#1B9CE2;
-}
-
-body{
-    margin:0;
-}
-
-#rooster{    
+#rooster{
     height:500px;
     width:1300px;
     margin-left:15%;
-    margin-top:100px;
+    margin-top:50px;
 }
 
 #rooster h2{
     text-align:center;
+}
+
+#rooster input{
+    margin-top:10px;
 }
 
 #app-calendar{
@@ -39,7 +34,7 @@ body{
 }
 
 .weekend{
-    color:var(--light-blue);
+    color:var(--grey-blue);
 }
 
 .selected{
@@ -50,4 +45,12 @@ body{
 .nonselected{
     background-color:var(--light-gray);
     color:white
+}
+
+#butPrev{
+    float:left;
+}
+
+#butNext{
+    float:right;
 }
