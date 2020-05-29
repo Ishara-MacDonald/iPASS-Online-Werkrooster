@@ -12,15 +12,8 @@
   font-size: 20px;
 }
 
-input[type="button"] {
-  width: 100px;
-  margin: 30px;
-}
-
 #loginButton{
-    position: absolute;
-    left:170px;
-    bottom:150px;
+  margin-top:50px;
 }
 
 .tab {
