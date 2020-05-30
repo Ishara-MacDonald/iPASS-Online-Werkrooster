@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Rooster</title>
     <link rel="stylesheet" href="../resources/css/main.css">
     <link rel="stylesheet" href="../resources/css/calendar.css">
 </head>
+
 <body>
-	<header>
-		<nav>
-			<ul>
+    <header>
+        <nav>
+            <ul>
                 <li><a>Home</a></li>
                 <li><a href="voegwerktijdtoe.html">Add Time</a></li>
                 <li><a href="inlog.html">Log Out</a></li>
             </ul>
-		</nav>
+        </nav>
     </header>
-    
+
     <section id="rooster">
         <h1 id="monthAndYear"></h1>
         <div id="days">
@@ -31,23 +33,32 @@
         <div id="app-calendar"></div>
         <div id="calendarButtons">
             <input value="previous" class="calendarbutton" onclick="previous()" type="button">
-            <input value="Today" class="calendarbutton"  onclick="jumpToToday()" type="button">
-            <input value="next" class="calendarbutton"  onclick="next()" type="button">
+            <input value="Today" class="calendarbutton" onclick="jumpToToday()" type="button">
+            <input value="next" class="calendarbutton" onclick="next()" type="button">
         </div>
     </section>
 
     <div class="modal" id="modal">
-            <div class="modal-header">
-                <div class="title">Example Model</div>
-                <button class="close-button">&times;</button>
-            </div>
-            <div class="modal-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur totam veritatis dolorem perferendis nam cumque eos in id sunt consequatur delectus ullam eveniet repudiandae reprehenderit unde, ducimus, ratione saepe tenetur vero ex, optio magnam fugit. Laudantium assumenda nesciunt quas ea dolorem quo magni dignissimos numquam eum, veniam ad commodi nemo.
-            </div>
+        <div class="modal-header">
+            <div class="title">Voeg werktijd toe</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <label for="startTime">Start</label>
+            <input type="datetime-local" name="startTime" id="startTime" >
+            <input type="time" name="startTime" min="07:00" max="19:00">
+            <label for="endTime">End</label>
+            <input type="time" name="endTime" min="07:00" max="19:00">
+        </div>
+        <div class="modal-footer">
+            <input data-close-button class="close-button" value="Voeg toe" type="button">
+        </div>
     </div>
 
     <div id="overlay"></div>
 
     <script src="../resources/js/scriptsrooster.js"></script>
+    <script src="../resources/js/scriptaddtime.js"></script>
 </body>
+
 </html>

@@ -4,48 +4,46 @@ let currentYear = today.getFullYear();
 
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-let monthAndYear  = document.getElementById("monthAndYear");
+let monthAndYear = document.getElementById("monthAndYear");
 
 const calendar = document.querySelector("#app-calendar");
 
-const isWeekend = day =>{
-    //0 when it's sunday, 6 when it's saturday
-    return day % 7 === 0 || day % 7 === 6;
-}
-
-showMonthAndYear(currentMonth, currentYear);
+setCalendar(currentMonth, currentYear);
 setMonthYearText();
+setAllEventListeners();
 
-function previous(){
+function previous() {
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-    currentMonth = (currentMonth === 0)? 11 : currentMonth - 1;
-    showMonthAndYear(currentMonth, currentYear);
+    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+    setCalendar(currentMonth, currentYear);
     setMonthYearText();
+    setAllEventListeners();
 }
 
-function next(){
+function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
-    showMonthAndYear(currentMonth, currentYear);
+    setCalendar(currentMonth, currentYear);
     setMonthYearText();
+    setAllEventListeners();
 }
 
-function jumpToToday(){
+function jumpToToday() {
     today = new Date();
     currentMonth = today.getMonth();
     currentYear = today.getFullYear();
-    showMonthAndYear(currentMonth, currentYear);
+    setCalendar(currentMonth, currentYear);
     setMonthYearText();
+    setAllEventListeners();
 }
 
-function setMonthYearText(){
+function setMonthYearText() {
     let yearMonthText = document.createTextNode(months[currentMonth] + ", " + currentYear)
     monthAndYear.innerHTML = "";
     monthAndYear.appendChild(yearMonthText)
 }
 
-
-function showMonthAndYear(month, year){
+function setCalendar(month, year) {
     let firstDay = new Date(year, month);
     let daysInMonth = 32 - (new Date(year, month, 32)).getDate();
 
@@ -54,37 +52,63 @@ function showMonthAndYear(month, year){
     let date = 1;
     let firstDayOfTheMonth = new Date(firstDay.getFullYear(), firstDay.getMonth(), 0).getDay();
 
-    for(let row = 0; row < 6; row++){
+    for (let row = 0; row < 6; row++) {
 
-        for(let column = 0; column <= 6; column++){
-            const weekend = isWeekend(date);
+        for (let column = 0; column <= 6; column++) {
             let result = "";
 
             //add empty 'cells'
-            if((row === 0 && column < firstDayOfTheMonth )|| date > daysInMonth){
+            if ((row === 0 && column < firstDayOfTheMonth) || date > daysInMonth) {
                 result = `<div class="day gray">
                 </div>`;
-            }else{
+            } else {
                 //add filled 'cells'
-                result = `<a href="voegwerktijdtoe.html"><div class="day ${weekend? "weekend" : ""}">
+                result = `<div data-modal-target="#modal" class="day">
                     ${date}
-                </div></a>`;
-                date++;              
+                </div>`;
+                date++;
             }
 
             //object is created
             calendar.insertAdjacentHTML("beforeend",
-                result);            
+                result);
         }
     }
-
-document.querySelectorAll("#app-calendar .day").forEach(
-        day =>{
-            day.addEventListener("click", event =>{
-                console.log(event.currentTarget)
-                event.currentTarget.classList.toggle("selected");
-            })
-        }
-    )
 }
 
+function setAllEventListeners(){
+    document.querySelectorAll("#app-calendar .day").forEach(
+        day => {
+            day.addEventListener('click', () => {
+                const modal = document.querySelector(day.dataset.modalTarget)
+                openModal(modal)
+            })
+        }
+
+    )
+    document.querySelectorAll("[data-close-button]").forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal')
+            closeModal(modal)
+        })
+    })
+
+    document.getElementById("overlay").addEventListener('click', () =>{
+        document.querySelectorAll('.modal.active').forEach( modal => {
+            closeModal(modal)
+        })
+    })
+}
+
+function openModal(modal) {
+    if (modal == null) return
+    modal.classList.add('active')
+    overlay.classList.add('active')
+
+}
+
+function closeModal(modal) {
+    if (modal == null) return
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+}
