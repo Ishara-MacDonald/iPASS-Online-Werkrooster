@@ -13,14 +13,22 @@ public class Werktijd {
 
     private static ArrayList<Werktijd> werkTijden = new ArrayList<>();
 
-    private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    public Werktijd(Gebruiker gebruiker, String beginTijd, String eindTijd) throws ParseException {
+    public Werktijd(Gebruiker gebruiker, String maand, String dag, String jaar, String beginTijd, String eindTijd) throws ParseException {
         this.gebruiker = gebruiker;
         this.presentieStatus = PresentieStatus.Aanwezig;
+
+        // Date date1 = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss").parse(String.format("%s-%s-%s-%s",jaar, maand, dag, beginTijd));
         
-        this.beginTijd = convertToDate(beginTijd);
-        this.eindTijd = convertToDate(eindTijd);
+        // System.out.println(date1);
+        
+        this.beginTijd = convertToDate(String.format("%s-%s-%s %s", maand, dag, jaar, beginTijd));
+        this.eindTijd = convertToDate(String.format("%s-%s-%s %s", maand, dag, jaar, eindTijd));
+
+        // timeFormat.parse();
+
+        werkTijden.add(this);
     }
 
     public void setPresentieStatus(PresentieStatus presentieStatus){this.presentieStatus = presentieStatus;}

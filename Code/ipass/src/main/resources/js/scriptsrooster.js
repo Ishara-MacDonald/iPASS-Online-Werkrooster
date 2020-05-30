@@ -1,12 +1,14 @@
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
+let currentDay;
 
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 let monthAndYear = document.getElementById("monthAndYear");
 
 const calendar = document.querySelector("#app-calendar");
+const dateSetter = document.getElementById("selectedDay");
 
 setCalendar(currentMonth, currentYear);
 setMonthYearText();
@@ -84,7 +86,6 @@ function setAllEventListeners() {
     document.querySelectorAll("#app-calendar .day").forEach(
         day => {
             day.addEventListener('click', () => {
-                console.log(event.currentTarget)
                 const modal = document.querySelector(day.dataset.modalTarget)
                 openModal(modal)
             })
@@ -107,7 +108,12 @@ function setAllEventListeners() {
 function openModal(modal) {
     if (modal == null) return
 
+    currentDay = event.currentTarget.textContent
+
+    // dateSetter.innerHTML="";
+    dateSetter.insertAdjacentHTML("beforeend", `<input type="date" name="selectedDay" id="selectedDay value="${currentMonth}-${currentYear}-${currentDay}"">`);
     modal.classList.add('active')
+    document.querySelectorAll(".currentDate").
     overlay.classList.add('active')
 
 }

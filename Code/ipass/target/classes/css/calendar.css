@@ -1,0 +1,147 @@
+#rooster {
+  height: 600px;
+  width: 1200px;
+  margin-left: 15%;
+}
+
+#rooster h1 {
+  text-align: center;
+  font-size: 40px;
+  margin: 15px;
+}
+
+#rooster input[type="button"] {
+  width: auto;
+}
+
+#days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  border: 2px solid var(--grey-blue);
+  height: 40px;
+  background-color: rgb(103, 120, 129);
+}
+
+.weekday {
+  margin-top: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+#app-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  height: 100%;
+  border: 1px solid var(--grey-blue);
+  border-bottom: 0px;
+  border-top: 0px;
+}
+
+.day {
+  border: 1px solid var(--light-gray);
+  text-align: center;
+  padding-top: 5px;
+  font-size: 12px;
+  cursor: pointer;  
+  transition: background-color 200ms, color 200ms;
+  background-color: var(--lighter-blue);
+  height:93px;
+}
+
+.day:hover {
+  background-color: rgb(202, 220, 230);
+  color: black;
+}
+
+.gray {
+  color: rgb(122, 122, 122);
+  background-color: var(--gray);
+}
+
+.selected {
+  background-color: rgb(130, 159, 175);
+  color: white;
+}
+
+#calendarButtons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.calendarbutton {
+  font-size: 15px;
+  border-top: 0px;
+}
+
+
+/* Pop-up Window Style */
+.modal{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition:300ms ease-in-out;
+  border: 1px solid black;
+  border-radius:10px;
+  z-index:10;
+  background-color: white;
+  width:500px;
+  max-width:80%;
+}
+
+.modal.active{
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header{
+  padding:10px 15px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-header .title{
+  font-size: 1.25rem;
+  font-weight:bold;
+}
+
+.modal-header .close-button{
+  cursor:pointer;
+  border:none;
+  outline:none;
+  background:none;
+  font-size:1.25rem;
+  font-weight: bold;
+}
+
+.modal-body{
+  padding: 10px 15px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal-footer{
+  text-align: center;
+  padding:10px;
+  margin:10px;
+}
+
+#overlay{
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: rgba(0 , 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active{
+  opacity: 1;
+  pointer-events: all;
+}
