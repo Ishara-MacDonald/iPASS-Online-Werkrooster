@@ -76,16 +76,20 @@ function setCalendar(month, year) {
     }
 }
 
-function setAllEventListeners(){
+function setCurrentDates(){
+    
+}
+
+function setAllEventListeners() {
     document.querySelectorAll("#app-calendar .day").forEach(
         day => {
             day.addEventListener('click', () => {
+                console.log(event.currentTarget)
                 const modal = document.querySelector(day.dataset.modalTarget)
                 openModal(modal)
             })
-        }
+        })
 
-    )
     document.querySelectorAll("[data-close-button]").forEach(button => {
         button.addEventListener('click', () => {
             const modal = button.closest('.modal')
@@ -93,8 +97,8 @@ function setAllEventListeners(){
         })
     })
 
-    document.getElementById("overlay").addEventListener('click', () =>{
-        document.querySelectorAll('.modal.active').forEach( modal => {
+    document.getElementById("overlay").addEventListener('click', () => {
+        document.querySelectorAll('.modal.active').forEach(modal => {
             closeModal(modal)
         })
     })
@@ -102,6 +106,7 @@ function setAllEventListeners(){
 
 function openModal(modal) {
     if (modal == null) return
+
     modal.classList.add('active')
     overlay.classList.add('active')
 
@@ -112,3 +117,4 @@ function closeModal(modal) {
     modal.classList.remove('active')
     overlay.classList.remove('active')
 }
+

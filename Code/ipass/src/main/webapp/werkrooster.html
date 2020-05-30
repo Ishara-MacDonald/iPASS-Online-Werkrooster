@@ -44,11 +44,12 @@
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
+            <label for="currentDate">Select a day</label>
+            <input type="date" name="currentDate" id="currentDate">
             <label for="startTime">Start</label>
-            <input type="datetime-local" name="startTime" id="startTime" >
-            <input type="time" name="startTime" min="07:00" max="19:00">
+            <input type="datetime-local" name="startTime" id="startTime">
             <label for="endTime">End</label>
-            <input type="time" name="endTime" min="07:00" max="19:00">
+            <input type="datetime-local" name="endTime" id="endTime">
         </div>
         <div class="modal-footer">
             <input data-close-button class="close-button" value="Voeg toe" type="button">
@@ -58,7 +59,6 @@
     <div id="overlay"></div>
 
     <script src="../resources/js/scriptsrooster.js"></script>
-    <script src="../resources/js/scriptaddtime.js"></script>
 </body>
 
 </html>
