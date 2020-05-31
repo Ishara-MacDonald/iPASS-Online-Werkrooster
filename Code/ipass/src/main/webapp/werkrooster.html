@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="../resources/css/calendar.css">
 </head>
 
-<body>
+<body onload="checkIfLoggedIn()">
     <header>
         <nav>
             <ul>
                 <li><a>Home</a></li>
-                <li><a href="voegwerktijdtoe.html">Add Time</a></li>
-                <li><a href="inlog.html">Log Out</a></li>
+                <li data-modal-target="#modal" id="addTimeButton"><a>Add Time</a></li>
+                <li><a href="inlog.html" onclick="loggedOut()">Log Out</a></li>
             </ul>
         </nav>
+        <section id="welcomeUser">
+            Welcome User
+        </section>
     </header>
 
     <section id="rooster">
@@ -45,25 +48,24 @@
         </div>
         <div class="modal-body">
             <section id="selectDay" class="modal-section">
-                <label for="selectedDay">Select a day</label>
+                <label for="selectedDay">Selecteer een dag</label>
                 <input type="date" name="selectedDay" id="selectedDay">
             </section>
             <section class="modal-section">
                 <label for="startTime">Start</label>
-                <input type="time" name="startTime" id="startTime">
+                <input type="time" name="startTime" id="startTime" min="09:00:00" max="18:00:00">
             </section>
             <section class="modal-section">
                 <label for="endTime">End</label>
                 <input type="time" name="endTime" id="endTime">
             </section>
         </div>
-        <div class="modal-footer">
-            <input data-close-button class="close-button" value="Voeg toe" type="button">
-        </div>
+        <input data-close-button class="close-button" id="addTime" value="Voeg toe" type="button">
     </div>
 
     <div id="overlay"></div>
 
+    <script src="../resources/js/scriptmain.js"></script>
     <script src="../resources/js/scriptsrooster.js"></script>
 </body>
 

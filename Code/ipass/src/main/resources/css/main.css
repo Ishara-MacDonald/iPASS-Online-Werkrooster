@@ -11,17 +11,29 @@ body {
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
+header{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #333;
+  color: white;
+}
+
+#welcomeUser{
+  display: block;
+  padding: 14px 16px;
+  text-align: center;
+}
+
 a{
   text-decoration: none;
-  color:black; 
+  color:white;
 }
 
 nav ul {
-  list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  list-style-type: none;
 }
 
 nav ul li {
@@ -30,10 +42,8 @@ nav ul li {
 
 nav ul li a {
   display: block;
-  color: white;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
 }
 
 li a:hover {

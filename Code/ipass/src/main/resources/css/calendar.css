@@ -1,7 +1,9 @@
 #rooster {
+  position:fixed;
   height: 600px;
   width: 1200px;
-  margin-left: 15%;
+  left:50%;
+  transform: translateX(-50%);
 }
 
 #rooster h1 {
@@ -123,10 +125,11 @@
   grid-template-columns: 1fr 1fr; */
 }
 
-.modal-footer{
+#addTime{
   text-align: center;
   padding:10px;
   margin:10px;
+  margin-left:100px;
 }
 
 #overlay{

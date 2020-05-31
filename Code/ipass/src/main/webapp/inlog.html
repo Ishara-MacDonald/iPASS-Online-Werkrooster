@@ -23,19 +23,21 @@
 
         <div id="Signin" class="tabcontent">
             <h1>Log In To Your Account</h1>
-            <input name="username" type="email" placeholder="Enter your email">
+            <input name="username" type="text" id="username" placeholder="Enter your username" aria-required="true">
             <br><br>
-            <input name="password" type="password" placeholder="Enter your password">
+            <input name="password" id="password" type="password" placeholder="Enter your password" aria-required="true">
             <br>
+            <input onclick="validateLogin()" type="submit" id="loginButton" value="Log in">
         </div>
 
         <div id="Signup" class="tabcontent">
             <h1>Sign Up For An Account</h1>
-            <input name="username" type="email" placeholder="Enter your email">
+            <input name="email" id="email" type="email" placeholder="Enter your email"  aria-required="true">
             <br>
+            <input onclick="validateEmail()" type="submit" id="signUpButton" value="Sign Up">
         </div>
 
-        <a href="werkrooster.html"><input type="button" id="loginButton" value="Log in"></a>
+        
     </section>
 
     <!-- <section  id="logindata ">
@@ -61,8 +63,9 @@
         </fieldset>
 
     </section> -->
-
     <script src="../resources/js/scriptlogin.js"></script>
+    <script src="../resources/js/scriptmain.js"></script>
+    
 </body>
 
 </html>

@@ -11,6 +11,8 @@ const calendar = document.querySelector("#app-calendar");
 const dateSetter = document.getElementById("selectDay");
 const overlay = document.getElementById("overlay");
 
+const openModalButtons = document.getElementById('addTimeButton');
+
 setCalendar(currentMonth, currentYear);
 setMonthYearText();
 setAllEventListeners();
@@ -85,13 +87,20 @@ function setAllEventListeners() {
                 openModal(modal)
             })
         })
-
+    
     document.querySelectorAll("[data-close-button]").forEach(button => {
         button.addEventListener('click', () => {
             const modal = button.closest('.modal')
             closeModal(modal)
         })
     })
+
+    // openModalButtons.forEach(button =>{
+        addTimeButton.addEventListener('click', () => {
+            const modal = document.querySelector(addTimeButton.dataset.modalTarget)
+            openModal(modal)
+        })
+    // })
 
     document.getElementById("overlay").addEventListener('click', () => {
         document.querySelectorAll('.modal.active').forEach(modal => {
@@ -109,8 +118,13 @@ function openModal(modal) {
         return number < 10;
     }
 
-    dateSetter.innerHTML=`<label for="selectedDay">Select a day</label>
+    if(currentDay === 'Add Time'){
+        dateSetter.innerHTML=`<label for="selectedDay">Select a day</label>
+        <input type="date" name="selectedDay" id="selectedDay" value="${currentYear}-${isUnderTen(currentMonth) ? "0" + currentMonth : currentMonth}-01">`;
+    }else{
+        dateSetter.innerHTML=`<label for="selectedDay">Select a day</label>
         <input type="date" name="selectedDay" id="selectedDay" value="${currentYear}-${isUnderTen(currentMonth) ? "0" + currentMonth : currentMonth}-${isUnderTen(currentDay) ? "0" + currentDay : currentDay}">`;
+    }    
     modal.classList.add('active')
     overlay.classList.add('active')
 }
