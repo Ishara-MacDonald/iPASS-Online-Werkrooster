@@ -119,8 +119,8 @@
 
 .modal-body{
   padding: 10px 15px;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
+  /* display:grid;
+  grid-template-columns: 1fr 1fr; */
 }
 
 .modal-footer{
@@ -144,4 +144,9 @@
 #overlay.active{
   opacity: 1;
   pointer-events: all;
+}
+
+.modal-section{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
 }

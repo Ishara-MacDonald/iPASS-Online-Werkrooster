@@ -44,12 +44,18 @@
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
-            <label for="selectedDay">Select a day</label>
-            <input type="date" name="selectedDay" id="selectedDay">
-            <label for="startTime">Start</label>
-            <input type="time" name="startTime" id="startTime">
-            <label for="endTime">End</label>
-            <input type="time" name="endTime" id="endTime">
+            <section id="selectDay" class="modal-section">
+                <label for="selectedDay">Select a day</label>
+                <input type="date" name="selectedDay" id="selectedDay">
+            </section>
+            <section class="modal-section">
+                <label for="startTime">Start</label>
+                <input type="time" name="startTime" id="startTime">
+            </section>
+            <section class="modal-section">
+                <label for="endTime">End</label>
+                <input type="time" name="endTime" id="endTime">
+            </section>
         </div>
         <div class="modal-footer">
             <input data-close-button class="close-button" value="Voeg toe" type="button">

@@ -8,7 +8,8 @@ let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 let monthAndYear = document.getElementById("monthAndYear");
 
 const calendar = document.querySelector("#app-calendar");
-const dateSetter = document.getElementById("selectedDay");
+const dateSetter = document.getElementById("selectDay");
+const overlay = document.getElementById("overlay");
 
 setCalendar(currentMonth, currentYear);
 setMonthYearText();
@@ -65,9 +66,7 @@ function setCalendar(month, year) {
                 </div>`;
             } else {
                 //add filled 'cells'
-                result = `<div data-modal-target="#modal" class="day">
-                    ${date}
-                </div>`;
+                result = `<div data-modal-target="#modal" class="day">${date}</div>`;
                 date++;
             }
 
@@ -76,10 +75,6 @@ function setCalendar(month, year) {
                 result);
         }
     }
-}
-
-function setCurrentDates(){
-    
 }
 
 function setAllEventListeners() {
@@ -110,12 +105,14 @@ function openModal(modal) {
 
     currentDay = event.currentTarget.textContent
 
-    // dateSetter.innerHTML="";
-    dateSetter.insertAdjacentHTML("beforeend", `<input type="date" name="selectedDay" id="selectedDay value="${currentMonth}-${currentYear}-${currentDay}"">`);
-    modal.classList.add('active')
-    document.querySelectorAll(".currentDate").
-    overlay.classList.add('active')
+    const isUnderTen = number =>{
+        return number < 10;
+    }
 
+    dateSetter.innerHTML=`<label for="selectedDay">Select a day</label>
+        <input type="date" name="selectedDay" id="selectedDay" value="${currentYear}-${isUnderTen(currentMonth) ? "0" + currentMonth : currentMonth}-${isUnderTen(currentDay) ? "0" + currentDay : currentDay}">`;
+    modal.classList.add('active')
+    overlay.classList.add('active')
 }
 
 function closeModal(modal) {
